@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="app">
+ 
+<head>
+<script src="../js/angular.min.js"></script>
+<script src="js/script.js"></script>
+</head>
+ 
+<body ng-controller="PruebaController">
+<!-- literal es con comillas simples -->
+<ng-include src="'cabecera.html'"></ng-include>
+Esto esta en la pagina principal
+<!-- sin nada es una propiedad del scope del controller -->
+<ng-include src="urlPie"></ng-include>
+</body>
+ 
+</html>

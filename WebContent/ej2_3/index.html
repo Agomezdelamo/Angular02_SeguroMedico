@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+<script src="../js/angular.min.js"></script>
+<script src="js/script.js"></script>
+</head>
+<!--  ng-controller. Esta directiva tiene el valor de 
+PruebaController. Este es el nombre de una función 
+JavaScript que deberemos crear. Con ésto le decimos 
+a angular que ejecute la función PruebaController 
+cuando se muestre el html. -->
+<body ng-controller="PruebaController">
+	<h1>{{mensaje}}</h1>
+<!-- Angular genera el HTML a partir del modelo y la plantilla , pero si 
+se modifica el modelo automáticamente vuelve a regenerar el HTML.  -->
+	<button ng-click="cambioMensaje()">Cambio</button>
+	<div>
+<!-- Es decir que el Data-binding funciona en ambas direcciones.
+	Modelo –> HTML
+	HTML –> Modelo -->
+		<input type="text" ng-model="mensaje" />
+	</div>
+</body>
+</html>
+
+
+
+
+
+<!-- ***************** -->
+<!-- DOCUMENTACIÓN ANGULAR -->
+<!-- ***************** -->
+<!-- DIRECTIVAS -->
+<!-- 
+ng-dblclick:Cuando se produce el evento doble click.
+ng-blur:Cuando se produce el evento blug.
+ng-change:Cuando se cambia el tag <input> o select> pero no cuando se cambia a consecuencias del propio modelo.
+ng-cut:Cuando se produce el evento cut.
+
+Eventos de TECLADO
+ng-keydown:Cuando se produce el evento keydown.
+ng-keyup:Cuando se produce el evento keyup.
+ng-keypress:Cuando se produce el evento keypress.
+
+Eventos de RATÓN
+ng-mousedown:Cuando se produce el evento mousedown
+ng-mouseenter:Cuando se produce el evento mouseenter
+ng-mouseleave:Cuando se produce el evento mouseleave
+ng-mousemove:Cuando se produce el evento mousemove
+ng-mouseover:Cuando se produce el evento mouseover
+ng-mouseup:Cuando se produce el evento mouseup
+ -->	

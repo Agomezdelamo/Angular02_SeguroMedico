@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+<script src="../js/angular.min.js"></script>
+<script src="js/script.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body ng-controller="PruebaController">
+  <table>
+    <thead>
+      <tr>
+        <th>IdProvincia</th>
+        <th>Nombre</th>
+        <th>Nº fila</th>
+      </tr>
+    </thead>
+    <tbody>
+			<!--     TRACK BY: -->
+			<!--     Por defecto, si cambiamos el array de datos ,AngularJS 
+	 automáticamente borrará todos los tag y los volverá a crear 
+	 con todos los datos. Si hay muchos datos éso suele ser poco eficiente.
+	 Para paliarlo, AngularJS permite que le digamos qué columna es 
+	 una clave única de nuestros objeto y así él puede optimizar el proceso. -->
+
+			<tr ng-repeat="provincia in provincias track by provincia.idProvincia" style="background-color:{{$even?'white':'yellow'}}">
+        <td>{{provincia.idProvincia}}</td>
+        <td>{{provincia.nombre}}</td>
+<!--         $INDEX, $FIRST, $LAST, $EVEN, $ODD SON ETIQUETAS ESPECIALES DE NG-REPEAT -->
+        <td>{{$index}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Repeticion de varias etiquetas</h3>
+  <strong ng-repeat-start="provincia in provincias track by provincia.idProvincia" >{{provincia.idProvincia}}</strong> {{provincia.nombre}}
+  <br ng-repeat-end>
+</body>
+
+</html>

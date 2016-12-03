@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="UTF-8">
+<script src="../js/angular.min.js"></script>
+<script src="js/script.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+
+<body ng-controller="PruebaController">
+	<h1>EJEMPLO DE IF</h1>
+
+<!-- NG-IF CREA OTRO SCOPE QUE HEREDA DEL SCOPE DEL CONTROLLER, LO MEJOR ES NO TRABAJAR CON VARIABLES, -->
+<!-- QUE DEPENDAN DIRECTAMENTE DE SCOPE, SINO CON OBJETOS QUE DEPENDAN DIRECTAMENTE DEL SCOPE, POR ESO -->
+<!-- APELLIDO QUE TRABAJA CON UN OBJETO MODELO, AUNQUE NO ESTA EN EL SCOPE DEL CONTROLLER, SINO EN EL QUE -->
+<!-- A HEREDADO(EL DEL IF) SI APUNTA AL MISMO OBJETO QUE EL DEL CONTROLLER, Y UN CAMBIO AFECTA A AMBOS -->
+
+	<input type="checkbox" ng-model="showNombre">¿Mostrar nombre?
+	<br>
+	<div ng-if="showNombre">
+		Nombre: <input ng-model="nombre"> <br> El valor de
+		"nombre" en el $scope del "ng-if" es : {{nombre}}
+	</div>
+	El valor de "nombre" en el $scope del "Controlador" es :
+	<strong>{{nombre}}</strong>
+
+
+	<hr>
+
+	<input type="checkbox" ng-model="modelo.showApellido">¿Mostrar
+	apellido?
+	<br>
+	<div ng-if="modelo.showApellido">
+		Apellido: <input ng-model="modelo.apellido"> <br> El
+		valor de "apellido" en el $scope del "ng-if" es : {{modelo.apellido}}
+	</div>
+	El valor de "apellido" en el $scope del "Controlador" es :
+	{{modelo.apellido}}
+	<h1>EJEMPLO DE SWITCH</h1>
+<!-- ng-switch funciona igual solo que con un switch -->
+	  <div ng-switch    on="model.mote">
+	  <input type="text" ng-model="model.mote"/>
+      <div ng-switch-when="petas">tranquilo petas</div>
+      <div ng-switch-when="zurraspa">tranquilo zurraspa</div>
+      <div ng-switch-default>no eres nadie tio</div>
+  </div>
+
+</body>
+
+</html>

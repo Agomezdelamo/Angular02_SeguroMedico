@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+<script src="../js/angular.min.js"></script>
+<script src="js/script.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+
+<body ng-controller="PruebaController">
+<!-- 		APARTE DE POR EFICIENCIA, el track by se mete para que si la current provincia la asignamos a un objeto -->
+<!-- 		que sea de tipo provincias, para el va a ser el mismo objeto, y lo va a relacionar con el array aunque no este en el -->
+      <select ng-model="miProvinciaSeleccionada" ng-options="provincia as provincia.nombre for 
+      provincia in provincias track by provincia.idProvincia" >
+        <option value="">--Elige opcion--</option>
+      </select>
+      <br>
+      El nombre de la provincia seleccionada es:{{miProvinciaSeleccionada.nombre}}
+      
+</body>
+
+</html>

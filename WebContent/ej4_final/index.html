@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+<script src="../js/angular.min.js"></script>
+<script src="js/script.js"></script>
+</head>
+
+<body ng-controller="MainController">
+
+<!-- include literal -->
+  <ng-include src="'cabecera.html'"></ng-include>
+
+  <a href="listado.html" >Listado de seguros medicos</a>
+  <br>
+  <a href="detalle.html" >detalle de seguros medicos</a>
+
+  <ng-include src="'pie.html'"></ng-include>
+</body>
+
+</html>

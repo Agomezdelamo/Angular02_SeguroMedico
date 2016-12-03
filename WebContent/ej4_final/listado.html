@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+<script src="../js/angular.min.js"></script>
+<script src="js/script.js"></script>
+
+</head>
+
+<body ng-controller="ListadoSeguroController">
+
+	Filtrar por apellido:
+	<input ng-model="filtro.ape1">
+
+	<ng-include src="'cabecera.html'"></ng-include>
+	<table>
+		<thead>
+			<tr>
+				<th>NIF</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Sexo</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="3">El Nº de seguros medicos es:</td>
+				<td ng-bind="seguros.length"></td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<!-- 	filtro especial, Verás que aparece únicamente el seguro de 
+			“Catalina López”. Si en vez de filteri18n usas filter no aparecerá 
+			ningún seguro. -->
+			<tr ng-repeat="seguro in seguros| filteri18n:{ape1:filtro.ape1}"
+				ng-style="{color:($odd?'red':'green')}">
+				<td><a ng-href="./seguros/edit/{{seguro.nif}}">{{seguro.nif}}</a></td>
+				<td>{{seguro.nombre}}</td>
+				<td>{{seguro.ape1}}</td>
+				<td ng-switch on="seguro.sexo"><span ng-switch-when="H">Hombre</span>
+					<span ng-switch-when="M">Mujer</span> <span ng-switch-when=""></span>
+					<span ng-switch-default>Desconocido</span></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<ng-include src="'pie.html'"></ng-include>
+</body>
+
+</html>

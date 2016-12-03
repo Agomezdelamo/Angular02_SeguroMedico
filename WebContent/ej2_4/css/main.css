@@ -1,0 +1,32 @@
+input {
+	display: block !important;
+	width: 100%;
+} 
+
+
+select, input[type="checkbox"] {
+	display: inline !important;
+} 
+
+label {
+	text-align: center;
+    margin: 20px 0;
+    display: block;
+    text-transform: uppercase;
+    background: #ccc;
+    font-family: arial;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.inline { display: inline;}
+
+fieldset {
+	width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+body * {
+	box-sizing: border-box !important;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+  <head>
+    <script src="../js/angular.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/md5.js"></script>
+    <script src="js/sha1.js"></script>
+    <script src="js/sha256.js"></script>
+    <script src="js/sha512.js"></script>
+    <script src="js/enc-base64-min.js"></script>
+  </head>
+
+    <body ng-controller="PruebaController">
+    Contrase&ntilde;a:<input ng-model="password" />
+    <br>
+    El hash de la contrase&ntilde;a es:
+    <br>
+    {{getHash(password)}}
+  </body>
+</html>

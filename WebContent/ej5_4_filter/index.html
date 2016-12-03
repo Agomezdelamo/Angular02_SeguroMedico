@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="app">
+ 
+<head>
+<script src="../js/angular.min.js"></script>
+<script src="js/script.js"></script>
+</head>
+<body ng-controller="PruebaController">
+
+<!--   Filtro: -->
+  <input type="text" ng-model="filtroNombreProvincia">
+  <hr>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">filter:{ nombre:filtroNombreProvincia }:false - es como un like</th>
+      </tr>
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+<!--     se pasa el model del input como value a buscar -->
+      <tr ng-repeat="provincia in provincias | filter:{ nombre:filtroNombreProvincia }:false | orderBy:'codProvincia'">
+        <td>{{provincia.idProvincia}}</td>
+        <td>{{provincia.nombre}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">filter:{ nombre:filtroNombreProvincia }:true - es busqueda exacta</th>
+      </tr>
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+<!--     2 FILTROS SEGUIDOS -->
+<!--     se pasa el model del input como value a buscar -->
+      <tr ng-repeat="provincia in provincias | filter:{ nombre:filtroNombreProvincia }:true | orderBy:'codProvincia'">
+        <td>{{provincia.idProvincia}}</td>
+        <td>{{provincia.nombre}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">filter:{ nombre:filtroNombreProvincia }:comparator - "comparator" es un metodo al que se le pasan 2 parametros, que son los que van entre llaves</th>
+      </tr>
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+    <!--     se pasa el model del input como value a buscar -->
+      <tr ng-repeat="provincia in provincias | filter:{ nombre:filtroNombreProvincia }:comparator | orderBy:'codProvincia'">
+        <td>{{provincia.idProvincia}}</td>
+        <td>{{provincia.nombre}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">filter:consultaPersonalizada</th>
+      </tr>
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="provincia in provincias | filter:consultaPersonalizada | orderBy:'codProvincia'">
+        <td>{{provincia.idProvincia}}</td>
+        <td>{{provincia.nombre}}</td>
+      </tr>
+    </tbody>
+  </table>  
+</body>
+
+</html>
